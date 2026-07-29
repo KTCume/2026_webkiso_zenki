@@ -64,7 +64,7 @@ EXIT;
 ブラウザから以下のURLへアクセスします。
 
 ```text
-http://<EC2インスタンスのIPアドレス>/bbstest.php
+http://<EC2インスタンスのIPアドレス>/bbsimagetest.php
 ```
 
 ## 機能
