@@ -66,11 +66,29 @@ $select_sth = $dbh->prepare(
 $select_sth->execute();
 
 ?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>掲示板</title>
+<style>
+body { max-width: 600px; margin: 0 auto; padding: 16px; font-family: sans-serif; background: #f9f9f9; color: #333; }
+form, dl { background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 16px; }
+textarea, input[type="file"], button { width: 100%; box-sizing: border-box; margin-bottom: 10px; }
+textarea { height: 80px; padding: 8px; }
+button { background: #007BFF; color: #fff; border: none; padding: 10px; border-radius: 4px; cursor: pointer; }
+img { max-height: 10em; max-width: 100%; border-radius: 4px; margin-top: 8px; }
+a { color: #007BFF; text-decoration: none; }
+</style>
+</head>
+<body>
 
+<h1>掲示板</h1>
 
 <form method="POST" action="./bbsimagetest.php" enctype="multipart/form-data">
 
-  <textarea name="body" required></textarea>
+  <textarea name="body" required placeholder="いまどうしてる？"></textarea>
 
   <div style="margin:1em 0;">
     <input id="imageInput" type="file" accept="image/*" name="image">
@@ -110,7 +128,11 @@ imageInput.addEventListener("change", function() {
   <dl style="margin-bottom:1em;padding-bottom:1em;border-bottom:1px solid #ccc;">
 
     <dt>ID</dt>
-    <dd><?= $entry['id'] ?></dd>
+    <dd>
+      <a href="./detail.php?id=<?= $entry['id'] ?>">
+        <?= $entry['id'] ?>
+      </a>
+    </dd>
 
 
     <dt>日時</dt>
@@ -138,3 +160,6 @@ imageInput.addEventListener("change", function() {
 
 
 <?php endforeach ?>
+
+</body>
+</html>
