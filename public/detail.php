@@ -1,5 +1,4 @@
 <?php
-
 $dbh = new PDO('mysql:host=mysql;dbname=example_db', 'root', '');
 
 $id = $_GET['id'] ?? null;
@@ -54,7 +53,11 @@ a.back-link:hover { background: #0056b3; }
 
     <dt>内容</dt>
     <dd>
-        <?= nl2br(htmlspecialchars($entry['body'], ENT_QUOTES, 'UTF-8')) ?>
+        <?php 
+          $body = htmlspecialchars($entry['body'], ENT_QUOTES, 'UTF-8');
+          $body = preg_replace('/&gt;&gt;([0-9]+)/', '<a href="./detail.php?id=$1">&gt;&gt;$1</a>', $body);
+        ?>
+        <?= nl2br($body) ?>
 
         <?php if(!empty($entry['image_filename'])): ?>
             <div>
