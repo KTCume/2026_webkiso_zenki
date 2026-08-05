@@ -114,7 +114,7 @@ EXIT;
 > ※あらかじめAWSのセキュリティグループで **HTTP（ポート80）** が開放されていることを確認してください。
 
 ```text
-http://<EC2インスタンスのIPアドレス>/bbsimagetest.php
+http://13.218.173.123/bbsimagetest.php
 
 ```
 
